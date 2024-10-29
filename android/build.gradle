@@ -1,7 +1,28 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        // maven {
+        //     url "https://maven.microsoft.com/"
+        // }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.2'
+        // Include the MAM build plugin and Javassist, which it depends on
+        classpath "org.javassist:javassist:3.27.0-GA"
+        classpath files("app/MAMSDK/com.microsoft.intune.mam.build.jar")
+
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21'
+    }
+}
+
 allprojects {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url 'https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1'
+        }
     }
 }
 
@@ -16,3 +37,5 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+
+
