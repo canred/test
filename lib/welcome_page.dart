@@ -45,14 +45,14 @@ class _WelcomePageState extends State<WelcomePage> {
         },
       );
       //showMessage('$ACCESS_TOKEN');
-
+      showMessage(response.body);
       if (response.statusCode == 200) {
         showMessage(response.body);
         // If the server returns a 200 OK response, parse the JSON.
         //print('API call successful: ${response.body}');
       } else {
         showMessage('異常');
-        showMessage(response.body);
+
         // If the server did not return a 200 OK response, throw an exception.
         //throw Exception('Failed to call API');
       }
