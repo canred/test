@@ -16,7 +16,7 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   late YoutubePlayerController _controller;
-  late String API_IP = 'http://localhost:3311/api/mobileTest';
+  late String API_IP = 'http://210.68.154.104/api/mobileTest';
   @override
   void initState() {
     super.initState();
@@ -44,6 +44,7 @@ class _WelcomePageState extends State<WelcomePage> {
           'Authorization': 'Bearer $ACCESS_TOKEN',
         },
       );
+      //showMessage('$ACCESS_TOKEN');
 
       if (response.statusCode == 200) {
         showMessage(response.body);
@@ -51,6 +52,7 @@ class _WelcomePageState extends State<WelcomePage> {
         //print('API call successful: ${response.body}');
       } else {
         showMessage('異常');
+        showMessage(response.body);
         // If the server did not return a 200 OK response, throw an exception.
         //throw Exception('Failed to call API');
       }
