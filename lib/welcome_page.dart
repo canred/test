@@ -16,7 +16,7 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   late YoutubePlayerController _controller;
-  late String API_IP = 'http://210.68.154.104/api/mobileTest';
+  late String API_IP = 'https://mobileapi.vis.com.tw/api/validation_id_access';
   @override
   void initState() {
     super.initState();

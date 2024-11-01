@@ -46,7 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
   static final Config config = Config(
     tenant: '3e7e3a11-2a69-4cad-9463-ea92f2fed6c0',
     clientId: 'c6dcb0ea-1509-4d4a-9fe1-0df47e8bb707',
-    scope: 'openid profile offline_access ',
+    scope: 'openid profile offline_access User.Read',
+    //scope: 'User.Read',
     redirectUri: kIsWeb ? "your local host URL" : "msauth://com.vis.test/%2Frn0m6TJIR79gIT%2BHb%2FZVR1V3%2Bc%3D",
     // msauth://com.example/%2Frn0m6TJIR79gIT%2BHb%2FZVR1V3%2Bc%3D
 
@@ -196,7 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final result = await oauth.login();
     result.fold(
       (l) => showError(l.toString()),
-      (r) async => await fetchAzureUserDetails2(r.accessToken).then((onValue) => {
+      (r) async => await fetchAzureUserDetails2(r.idToken).then((onValue) => {
             if (myUser != null)
               {
                 Navigator.push(
